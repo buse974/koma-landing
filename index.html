@@ -3,28 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Koma - Le jeu quotidien pour deviner un manga à partir de ses cases.">
-  <title>Koma</title>
+  <title>Koma : le jeu quotidien pour deviner un manga en 6 cases</title>
+  <meta name="description" content="Koma est un jeu gratuit pour deviner un manga à partir de 6 cases révélées une à une. Un quiz manga quotidien, sans compte, avec archives et partage en emojis.">
+  <meta name="keywords" content="jeu deviner manga, quiz manga quotidien, manga guess game, devine le manga, jeu manga gratuit">
+  <meta name="theme-color" content="#F6F0E1">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://koma.51.77.223.61.nip.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Koma">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Koma : devine le manga en 6 cases">
+  <meta property="og:description" content="Un manga mystère par jour, 6 cases, 6 essais. Gratuit, sans compte. Saurez-vous le trouver ?">
+  <meta property="og:url" content="https://koma.51.77.223.61.nip.io/">
+  <meta property="og:image" content="https://koma.51.77.223.61.nip.io/assets/favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Koma : devine le manga en 6 cases">
+  <meta name="twitter:description" content="Un manga mystère par jour, 6 cases, 6 essais. Gratuit, sans compte.">
+  <meta name="twitter:image" content="https://koma.51.77.223.61.nip.io/assets/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://koma.51.77.223.61.nip.io/#website",
+        "url": "https://koma.51.77.223.61.nip.io/",
+        "name": "Koma",
+        "description": "Jeu quotidien et gratuit pour deviner un manga à partir de 6 cases.",
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Koma est-il gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, Koma est entièrement gratuit, sans publicité intrusive ni achat obligatoire."}},
+          {"@type": "Question", "name": "Quand change le puzzle du jour ?", "acceptedAnswer": {"@type": "Answer", "text": "Un nouveau manga mystère est proposé chaque jour à minuit, heure de Paris."}},
+          {"@type": "Question", "name": "Faut-il un compte pour jouer ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Aucun compte ni inscription : ouvrez le jeu et jouez."}},
+          {"@type": "Question", "name": "Quels mangas trouve-t-on dans Koma ?", "acceptedAnswer": {"@type": "Answer", "text": "Des séries connues comme des pépites plus discrètes, shonen, seinen, shojo ou autres. Les cases sont choisies pour être devinables sans être évidentes."}},
+          {"@type": "Question", "name": "Puis-je rejouer les anciens puzzles ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, les archives permettent de rejouer tous les puzzles passés."}},
+          {"@type": "Question", "name": "Pourquoi les bulles de texte sont-elles floutées ?", "acceptedAnswer": {"@type": "Answer", "text": "Les dialogues donneraient la réponse trop facilement. Seules les images comptent : décors, personnages, trait."}}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/" class="logo">Koma</a>
-    </nav>
+  <a class="skip" href="#jouer">Aller au contenu</a>
+
+  <header class="top">
+    <a href="/" class="logo" aria-label="Koma, accueil"><span>Koma</span><small lang="ja">コマ</small></a>
+    <a class="btn btn-small" href="https://app.koma.51.77.223.61.nip.io">Jouer</a>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Bienvenue sur Koma</h1>
-      <p>Votre projet est prêt.</p>
+    <section class="hero" aria-labelledby="titre">
+      <div class="speed" aria-hidden="true"></div>
+      <div class="hero-in">
+        <p class="kicker">Un manga mystère par jour</p>
+        <h1 id="titre">Devine le manga en <em>6&nbsp;cases</em></h1>
+        <p class="lead">Une case apparaît. Tu hésites ? Une erreur, et la suivante se dévoile. Six essais pour retrouver le manga du jour. Gratuit, sans compte.</p>
+        <p><a id="jouer" class="btn" href="https://app.koma.51.77.223.61.nip.io">Jouer au Koma du jour <span aria-hidden="true">→</span></a></p>
+        <p class="note"><span lang="ja">コマ</span> signifie « case » en japonais.</p>
+      </div>
+
+      <figure class="panel-wrap" data-reveal>
+        <svg class="mock" viewBox="0 0 400 300" role="img" aria-label="Aperçu fictif d'une case de manga : deux silhouettes face à face, lignes de vitesse et une bulle de texte floutée.">
+          <defs>
+            <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="3.5" cy="3.5" r="1.5" fill="#111"/></pattern>
+            <pattern id="dots2" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="2.5" cy="2.5" r="1" fill="#111"/></pattern>
+            <filter id="blur" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="3.2"/></filter>
+            <clipPath id="clip"><rect width="400" height="300"/></clipPath>
+          </defs>
+          <g clip-path="url(#clip)">
+            <rect width="400" height="300" fill="#FBF7EC"/>
+            <rect width="400" height="130" fill="url(#dots2)" opacity=".28"/>
+            <g stroke="#111" stroke-width="2" opacity=".85">
+              <path d="M200 150 L0 40M200 150 L0 80M200 150 L0 120M200 150 L0 170M200 150 L0 215M200 150 L30 300"/>
+              <path d="M200 150 L400 30M200 150 L400 75M200 150 L400 120M200 150 L400 175M200 150 L400 220M200 150 L370 300"/>
+              <path d="M200 150 L130 0M200 150 L260 0M200 150 L170 0M200 150 L310 0"/>
+            </g>
+            <circle cx="200" cy="150" r="58" fill="#FBF7EC"/>
+            <path d="M0 300 L0 250 Q60 215 120 245 L150 300Z" fill="#111"/>
+            <path d="M400 300 L400 235 Q335 205 280 240 L255 300Z" fill="#111"/>
+            <g fill="#111">
+              <ellipse cx="82" cy="170" rx="30" ry="36"/>
+              <path d="M44 160 Q50 120 82 118 Q118 120 120 160 Q100 138 82 142 Q62 140 44 160Z"/>
+              <path d="M52 205 L112 205 L128 300 L36 300Z"/>
+              <ellipse cx="318" cy="165" rx="28" ry="34"/>
+              <path d="M284 150 L292 108 L306 132 L322 100 L336 130 L354 112 L352 156Q330 134 284 150Z"/>
+              <path d="M290 198 L346 198 L364 300 L276 300Z"/>
+            </g>
+            <path d="M0 215 Q80 190 160 232 L190 300 L0 300Z" fill="url(#dots)" opacity=".55"/>
+            <g filter="url(#blur)">
+              <path d="M120 22 Q120 8 140 8 L262 8 Q282 8 282 22 L282 62 Q282 76 262 76 L208 76 L186 100 L190 76 L140 76 Q120 76 120 62Z" fill="#fff" stroke="#111" stroke-width="3"/>
+              <g stroke="#111" stroke-width="5" stroke-linecap="round"><path d="M142 30H258M142 46H236M142 62H214"/></g>
+            </g>
+          </g>
+          <rect x="1.5" y="1.5" width="397" height="297" fill="none" stroke="#111" stroke-width="3"/>
+        </svg>
+        <figcaption>Case 1/6 : fausse case, créée pour l'exemple.</figcaption>
+      </figure>
+    </section>
+
+    <section class="how" aria-labelledby="comment">
+      <h2 id="comment">Comment jouer</h2>
+      <ol class="steps">
+        <li data-reveal>
+          <span class="num" aria-hidden="true">1</span>
+          <h3>Observe la case</h3>
+          <p>Une première vignette de planche s'affiche. Les bulles sont floutées : il faut reconnaître le trait, les décors, les personnages.</p>
+        </li>
+        <li data-reveal>
+          <span class="num" aria-hidden="true">2</span>
+          <h3>Propose un titre</h3>
+          <p>Tape le nom du manga et valide. Mauvaise réponse ? Une nouvelle case se révèle, plus parlante que la précédente.</p>
+        </li>
+        <li data-reveal>
+          <span class="num" aria-hidden="true">3</span>
+          <h3>Trouve en 6 essais</h3>
+          <p>Moins tu utilises de cases, meilleur est ton score. Au bout de six erreurs, la réponse est dévoilée.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="share" aria-labelledby="partage">
+      <div class="share-in">
+        <div>
+          <h2 id="partage">Partage ton score, sans spoiler</h2>
+          <p>Une fois la partie terminée, copie ton résultat en emojis et défie tes amis sur les réseaux, sans révéler la réponse.</p>
+        </div>
+        <figure class="tweet" data-reveal>
+          <pre aria-label="Koma numéro 42, trouvé en 3 essais : une erreur, un passage, puis trouvé ; trois essais non utilisés.">Koma #42 3/6
+🟥⬛🟩⬜⬜⬜</pre>
+          <figcaption>🟥 erreur · ⬛ passé · 🟩 trouvé · ⬜ essai non utilisé</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq">
+      <h2 id="faq">Questions fréquentes</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Koma est-il gratuit ?</summary>
+          <p>Oui, entièrement. Pas d'abonnement, pas d'achat obligatoire.</p>
+        </details>
+        <details>
+          <summary>Quand change le puzzle du jour ?</summary>
+          <p>Chaque jour à minuit, heure de Paris. Tout le monde joue le même manga le même jour.</p>
+        </details>
+        <details>
+          <summary>Faut-il un compte pour jouer ?</summary>
+          <p>Non. Aucune inscription : ouvre le jeu et joue.</p>
+        </details>
+        <details>
+          <summary>Quels mangas trouve-t-on dans Koma ?</summary>
+          <p>Des séries cultes comme des titres plus discrets, shonen, seinen, shojo et autres. Les cases sont choisies pour être devinables sans être évidentes.</p>
+        </details>
+        <details>
+          <summary>Puis-je rejouer les anciens puzzles ?</summary>
+          <p>Oui. Les archives te permettent de rejouer tous les jours passés.</p>
+        </details>
+        <details>
+          <summary>Pourquoi les bulles de texte sont-elles floutées ?</summary>
+          <p>Les dialogues donneraient la réponse trop facilement. Seules les images comptent : décors, personnages, trait.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-t">
+      <h2 id="cta-t">Le manga du jour t'attend</h2>
+      <p><a class="btn" href="https://app.koma.51.77.223.61.nip.io">Jouer au Koma du jour <span aria-hidden="true">→</span></a></p>
     </section>
   </main>
 
   <footer>
+    <p>Les œuvres appartiennent à leurs auteurs et éditeurs. Koma est un jeu de fans, non affilié. Retrait sur simple demande : <a href="mailto:contact@koma.example">contact</a>.</p>
     <p>&copy; 2026 Koma</p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
